@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="player_mapper">
+<insert id="insertLog" parameterType="player">
+		insert into ${tableName} (teamid,userid,teamName,createTime,zoneid,serverid,type,playerid,name,isOk,reason) values(#{teamid},#{userid},#{teamName},#{createTime},#{zoneid},#{serverid},#{type},#{playerid},#{name},#{isOk},#{reason})
+</insert>
+<update id="createTable" parameterType="player">
+	create table if not exists ${tableName} (teamid int(11) default 0,userid varchar(50) default null,teamName varchar(100) default  null,createTime varchar(100) default '0000-00-00 00:00:00',zoneid varchar(20) default null,serverid varchar(20) default null,type int(11) default 0,playerid int(11) default 0,name text,isOk int(11) default 0,reason varchar(500) default null) ENGINE = MyISAM DEFAULT CHARSET UTF8
+</update>
+</mapper>

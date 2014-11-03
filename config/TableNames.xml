@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<common>
+		<id  sqlType = "bigint(20) not null AUTO_INCREMENT primary key" classType = "long" desc = "ID" for_select = "0"/>
+		<teamid sqlType = "int(11) default 0" classType = "int" desc = "球队id" for_select = "1"/>
+		<userid sqlType = "varchar(50) default null" classType = "String" desc = "用户id" for_select = "1"/>
+		<teamName sqlType = "varchar(100) default  null" classType = "String" desc = "球队名" for_select = "1"/>
+		<createTime sqlType = "varchar(100) default '0000-00-00 00:00:00'" classType = "String" desc = "创建时间" for_select = "0"/>
+		<zoneid sqlType = "varchar(20) default null" classType = "String" desc = "大区ID" for_select = "0"/>
+		<serverid sqlType = "varchar(20) default null" classType = "String" desc = "服务器id" for_select = "0"/>
+		<type sqlType = "int(11) default 0" classType = "int" desc = "日志类型" for_select = "1"/>
+	</common>
+	<!-- type是日志类型，用于区别不同的日志表 -->
+	<tables>
+		<table type = "1" name="regist" desc = "注册" status = "1">
+		 	 <ip sqlType = "varchar(20) default null" classType = "String" desc= "注册ip地址" for_select = "0"/>
+		 	 <isOk sqlType = "int(11) default 0" classType = "int" desc= "是否成功:1成功，0失败" for_select = "1"/>
+		</table>
+		<table type = "3" name = "login" desc ="登陆" status = "1">
+			<ip sqlType = "varchar(20) default null" classType = "String" desc= "注册ip地址" for_select = "1"/>
+		</table>
+		<table type = "2" name = "item" desc = "物品" status = "1">
+			<itemid sqlType = "int(11) default 0" classType = "int" desc = "物品ID" for_select = "1"/>
+			<number sqlType = "int(11) default 0" classType = "int" desc = "物品数量" for_select = "1"/>
+			<name sqlType = "varchar(200) default null" classType = "String" desc = "物品名" for_select = "1"/>
+			<price sqlType = "int(11) default 0" classType = "int" desc = "寄售价格" for_select = "1"/>
+			<reason sqlType = "varchar(500) default null" classType = "String" desc = "事件原因" for_select = "1"/>
+		</table>
+		
+		<table type = "4" name = "shuXing" desc = "球队数值变化" status = "1">
+			<nowValue sqlType = "bigint(20) default 0" classType = "long" desc = "增加前" for_select = "1"/>
+			<addValue sqlType = "bigint(20) default 0" classType = "long" desc = "增加后" for_select = "1"/>
+			<reason sqlType = "text" classType = "String" desc = "事件原因" for_select = "1"/>
+		</table>
+		<table type = "5" name = "player" desc = "球员获取消耗" status = "1">
+			<playerid sqlType = "int(11) default 0" classType = "int" desc = "签约或使用的球员id" for_select = "1"/>
+			<name sqlType = "text" classType = "String" desc = "球员名" for_select = "1"/>
+			<isOk sqlType = "int(11) default 0" classType = "int" desc = "是否成功" for_select = "0"/>
+			<reason sqlType = "varchar(500) default null" classType = "String" desc = "事件原因" for_select = "1"/>
+		</table>
+		<table type = "6" name = "jibenxingwei" desc= "基本行为" status = "1">
+			<data sqlType = "text" classType = "String" desc = "基本行为日志" for_select = "1"/>
+			<reason sqlType = "varchar(500) default null" classType = "String" desc = "事件原因" for_select = "0"/>
+		</table>
+		<table type = "7" name = "pay" desc = "充值记录" status = "1">
+			<ingot sqlType = "int(11) default 0" classType = "int" desc = "充值RMB" for_select = "1"/>
+			<vipLv sqlType = "int(11) default 0" classType = "int" desc = "vip等级" for_select = "1"/>
+			<reason sqlType = "varchar(500) default null" classType = "String" desc = "事件原因" for_select = "0"/>
+		</table>
+	</tables>
+</root>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shuXing_mapper">
+<insert id="insertLog" parameterType="shuXing">
+		insert into ${tableName} (teamid,userid,teamName,createTime,zoneid,serverid,type,nowValue,addValue,reason) values(#{teamid},#{userid},#{teamName},#{createTime},#{zoneid},#{serverid},#{type},#{nowValue},#{addValue},#{reason})
+</insert>
+<update id="createTable" parameterType="shuXing">
+	create table if not exists ${tableName} (teamid int(11) default 0,userid varchar(50) default null,teamName varchar(100) default  null,createTime varchar(100) default '0000-00-00 00:00:00',zoneid varchar(20) default null,serverid varchar(20) default null,type int(11) default 0,nowValue bigint(20) default 0,addValue bigint(20) default 0,reason text) ENGINE = MyISAM DEFAULT CHARSET UTF8
+</update>
+</mapper>

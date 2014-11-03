@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.logserver.model.RegistLog" alias="regist"/>
+		<typeAlias type="com.logserver.model.ItemLog" alias="item"/>
+		<typeAlias type="com.logserver.model.LoginLog" alias="login"/>
+		<typeAlias type="com.logserver.model.ShuXingLog" alias="shuXing"/>
+		<typeAlias type="com.logserver.model.PlayerLog" alias="player"/>
+		<typeAlias type="com.logserver.model.JibenxingweiLog" alias="jibenxingwei"/>
+		<typeAlias type="com.logserver.model.PayLog" alias="pay"/>
+	</typeAliases> 
+	<environments default="development">
+		<environment id="development">
+		<transactionManager type="JDBC"/>
+		<dataSource type="POOLED">
+			<property name="driver" value="com.mysql.jdbc.Driver" />
+			<property name="url" value="jdbc:mysql://192.168.1.119:3306/club_log?useUnicode=true&amp;characterEncoding=utf-8" />
+			<property name="username" value="root" />
+			<property name="password" value="root" />
+			<property name='poolMaximumActiveConnections' value='20'/>
+			<property name='poolMaximumCheckoutTime' value='20'/>
+		</dataSource>
+		</environment>
+</environments> 
+<mappers>
+	<mapper resource="com/logserver/model/RegistLog.xml"/>
+	<mapper resource="com/logserver/model/ItemLog.xml"/>
+	<mapper resource="com/logserver/model/LoginLog.xml"/>
+	<mapper resource="com/logserver/model/ShuXingLog.xml"/>
+	<mapper resource="com/logserver/model/PlayerLog.xml"/>
+	<mapper resource="com/logserver/model/JibenxingweiLog.xml"/>
+	<mapper resource="com/logserver/model/PayLog.xml"/>
+	<mapper resource="com/logserver/model/BaseEntity.xml"/>
+</mappers>
+</configuration>
